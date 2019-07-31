@@ -103,12 +103,12 @@ class show_online_user_count_widget {
 		$this->clean_offline_user();
 		$this->activity_update();
 		/*$query='SELECT COUNT(*) FROM ^online_user WHERE user_id>"0"';*/
-                /* Actualizacion por Cristian www.tjasistemas.com */
+               
                 $query='SELECT COUNT(*) FROM ^online_user WHERE user_id>"0" AND user_id<>"2"';
 		$resultDb=qa_db_query_sub($query);
 		$online_member_count=qa_db_read_one_assoc($resultDb,true);
 		/*$query='SELECT COUNT(*) FROM ^online_user WHERE user_id="0"';*/
-                /* Actualizacion por Cristian www.tjasistemas.com */
+              
                 $query='SELECT COUNT(*) FROM ^online_user WHERE user_id="0" AND user_id<>"2"';
 		$resultDb=qa_db_query_sub($query);
 		$online_guest_count=qa_db_read_one_assoc($resultDb,true);
@@ -127,7 +127,7 @@ class show_online_user_count_widget {
 		if (qa_opt('show_online_user_list')>0)
 		{
 			/*$query="SELECT ^users.handle FROM ^users,^online_user WHERE ^users.userid=^online_user.user_id AND ^online_user.user_id>0";*/
-                        /* Actualizacion por Cristian www.tjasistemas.com */
+                       
                         $query="SELECT ^users.handle FROM ^users,^online_user WHERE ^users.userid=^online_user.user_id AND ^online_user.user_id>0 AND ^online_user.user_id<>2";
 			$resultDb=qa_db_query_sub($query);
 			if (mysqli_num_rows($resultDb)>0){
